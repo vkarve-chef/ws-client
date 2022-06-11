@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "io.chef";
+
+package chef_infra;
+
+service ChefInfra {
+    rpc GetCookbookVersion(Cookbook) returns (Version) {}
+}
+
+message Version {
+    int32 major = 1;
+    int32 minor = 2;
+    int32 patch = 3;
+}
+
+message Cookbook {
+    string name = 1;
+    Version version = 2;
+}
+
